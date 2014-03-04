@@ -1,3 +1,3 @@
 Lottery
 =======
-can run in phone and pc-web(need support canvas)
+can run in handheld device and pc-web(need support canvas)
