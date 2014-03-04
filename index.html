@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Lottery Demo</title>
+    <style type="text/css">
+      #lotteryContainer {
+        position:relative;
+        width: 300px;
+        height:100px;
+      }
+    </style>
+</head>
+<body>
+    <button id="freshBtn">刷新</button>
+    <div id="lotteryContainer"></div>
+    <script src="Lottery.js"></script>
+    <script>
+      window.onload = function () {
+          var lottery = new Lottery('lotteryContainer', '#CCC', 'color');
+          lottery.init('http://www.baidu.com/img/bdlogo.gif', 'image');
+          
+          document.getElementById('freshBtn').onclick = function() {        
+              lottery.init(getRandomStr(10), 'text');
+          }
+      }
+      
+      function getRandomStr(len) {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+          for( var i=0; i < len; i++ )
+              text += possible.charAt(Math.floor(Math.random() * possible.length));
+          return text;
+      }
+    </script>
+</body>
+</html>
