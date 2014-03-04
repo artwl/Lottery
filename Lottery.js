@@ -1,4 +1,4 @@
-function Lottery(id, cover, coverType, width, height) {
+function Lottery(id, cover, coverType, width, height, drawPercentCallback) {
     this.conId = id;
     this.conNode = document.getElementById(this.conId);
     this.cover = cover;
@@ -12,6 +12,7 @@ function Lottery(id, cover, coverType, width, height) {
     this.width = width || 300;
     this.height = height || 100;
     this.clientRect = null;
+    this.drawPercentCallback = drawPercentCallback;
 }
 
 Lottery.prototype = {
@@ -21,6 +22,18 @@ Lottery.prototype = {
             ele.setAttribute(key, attributes[key]);
         }
         return ele;
+    },
+    getTransparentPercent: function(ctx, width, height) {
+        var imgData = ctx.getImageData(0, 0, width, height),
+            pixles = imgData.data,
+            transPixs = [];
+        for (var i = 0, j = pixles.length; i < j; i += 4) {
+            var a = pixles[i + 3];
+            if (a < 128) {
+                transPixs.push(i);
+            }
+        }
+        return (transPixs.length / (pixles.length / 4) * 100).toFixed(2);
     },
     resizeCanvas: function (canvas, width, height) {
         canvas.width = width;
@@ -35,6 +48,9 @@ Lottery.prototype = {
         this.maskCtx.fillStyle = radgrad;
         this.maskCtx.arc(x, y, 30, 0, Math.PI * 2, true);
         this.maskCtx.fill();
+        if (this.drawPercentCallback) {
+            this.drawPercentCallback.call(null, this.getTransparentPercent(this.maskCtx, this.width, this.height));
+        }
     },
     bindEvent: function () {
         var _this = this;
