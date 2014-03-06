@@ -38,5 +38,5 @@ can run in handheld device and pc-web(need support canvas)
 
 ##DEMO
 
-[http://jsfiddle.net/artwl/L6D63/7/embedded/result,js,html,css/](http://jsfiddle.net/artwl/L6D63/7/embedded/result,js,html,css/)
+[http://jsfiddle.net/artwl/L6D63/10/embedded/result,js,html,css/](http://jsfiddle.net/artwl/L6D63/10/embedded/result,js,html,css/)
 
