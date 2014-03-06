@@ -62,6 +62,15 @@ Lottery.prototype = {
             document.addEventListener('mouseup', function(e) {
                 isMouseDown = false;
             }, false);
+        } else {
+            document.addEventListener("touchmove", function(e) {
+                if (isMouseDown) {
+                    e.preventDefault();
+                }
+            }, false);
+            document.addEventListener('touchend', function(e) {
+                isMouseDown = false;
+            }, false);
         }
         this.mask.addEventListener(clickEvtName, function (e) {
             isMouseDown = true;
