@@ -2,8 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Lottery Demo</title>
     <style type="text/css">
+        body{
+            height:1000px;
+        }
         #lotteryContainer {
             position:relative;
             width: 300px;
@@ -22,19 +26,19 @@
         window.onload = function () {
             var lottery = new Lottery('lotteryContainer', '#CCC', 'color', 300, 100, drawPercent);
             lottery.init('http://www.baidu.com/img/bdlogo.gif', 'image');
-            
+
             document.getElementById('freshBtn').onclick = function() {
                 drawPercentNode.innerHTML = '0%';
                 lottery.init(getRandomStr(10), 'text');
             }
-            
+
             var drawPercentNode = document.getElementById('drawPercent');
-            
+
             function drawPercent(percent) {
                 drawPercentNode.innerHTML = percent + '%';
             }
         }
-        
+
         function getRandomStr(len) {
             var text = "";
             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
