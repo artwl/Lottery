@@ -4,7 +4,7 @@ Lottery
 
 can run in handheld device and pc-web(need support canvas)
 
-##使用说明
+## 使用说明
 
 
     var lottery = new Lottery(id, cover, coverType, width, height, drawPercentCallback);
@@ -15,7 +15,7 @@ can run in handheld device and pc-web(need support canvas)
         //some code here
     }
 
-##构造方法参数解释
+## 构造方法参数解释
 
 `id`:刮奖容器，必须
 
@@ -29,14 +29,14 @@ can run in handheld device and pc-web(need support canvas)
 
 `drawPercentCallback`:刮开的区域百分比，可空
 
-##init方法解释
+## init方法解释
 
 `lottery`:刮开后显示的内容，可以为图片地址或字符串，必须
 
 `lotteryType`:刮开后显示的内容类型，值为 image 或 text，要跟`lottery`匹配，默认为 image
 
 
-##DEMO
+## DEMO
 
 [http://jsfiddle.net/artwl/L6D63/10/embedded/result,js,html,css/](http://jsfiddle.net/artwl/L6D63/10/embedded/result,js,html,css/)
 
